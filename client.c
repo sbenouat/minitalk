@@ -6,7 +6,7 @@
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:19:59 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/13 16:05:01 by sbenouat         ###   ########.fr       */
+/*   Updated: 2023/02/21 14:59:44 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <signal.h>
 #include <stdlib.h>
 
-char	*ctob(char c)
+char	*ctob(char c, pid_t pid)
 {
 	int		i;
 	int		j;
@@ -28,9 +28,11 @@ char	*ctob(char c)
 	{
 		i--;
 		if (c & (1 << i))
-			rslt[j] = '1';
+			kill(pid, SIGUSR1);
+			//rslt[j] = '1';
 		else
-			rslt[j] = '0';
+			kill(pid, SIGUSR2);
+			//rslt[j] = '0';
 		j++;
 	}
 	return (rslt);
@@ -45,9 +47,10 @@ void	stob(char *b)
 	}
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	printf("Voici le PID : %d\n", getpid());
-	stob("SALAM");
-	return (0);
+	if (ac == 3)
+	{
+
+	}
 }
