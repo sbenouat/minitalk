@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 14:20:10 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/22 18:40:31 by sbenouat         ###   ########.fr       */
+/*   Created: 2022/11/08 15:33:46 by sbenouat          #+#    #+#             */
+/*   Updated: 2022/11/08 15:49:24 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
+#include "libft.h"
 
-int	main(void)
+size_t	ft_strlen(const char *s)
 {
-	ft_printf("Voici le PID : %d\n", getpid());
-	return (0);
+	size_t	rslt;
+
+	rslt = 0;
+	while (*s)
+	{
+		rslt++;
+		s++;
+	}
+	return (rslt);
 }

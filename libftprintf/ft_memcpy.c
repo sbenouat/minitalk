@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 14:20:10 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/22 18:40:31 by sbenouat         ###   ########.fr       */
+/*   Created: 2022/11/23 00:37:28 by sbenouat          #+#    #+#             */
+/*   Updated: 2022/12/20 07:07:09 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
+#include "libft.h"
 
-int	main(void)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	ft_printf("Voici le PID : %d\n", getpid());
-	return (0);
+	char		*inter_dst;
+	const char	*inter_src;
+	size_t		i;
+
+	inter_dst = dst;
+	inter_src = src;
+	i = 0;
+	if (inter_dst != NULL || inter_src != NULL)
+	{
+		while (i < n)
+		{
+			inter_dst[i] = (char)inter_src[i];
+			i++;
+		}
+	}
+	return (dst);
 }

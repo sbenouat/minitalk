@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 14:20:10 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/22 18:40:31 by sbenouat         ###   ########.fr       */
+/*   Created: 2022/10/05 06:53:40 by sbenouat          #+#    #+#             */
+/*   Updated: 2022/10/05 06:58:36 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_isdigit(int c)
 {
-	ft_printf("Voici le PID : %d\n", getpid());
+	if (c > 47 && c < 58)
+		return (1);
 	return (0);
 }

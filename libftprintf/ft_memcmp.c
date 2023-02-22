@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 14:20:10 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/22 18:40:31 by sbenouat         ###   ########.fr       */
+/*   Created: 2022/11/23 02:08:24 by sbenouat          #+#    #+#             */
+/*   Updated: 2022/11/23 02:18:21 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	ft_printf("Voici le PID : %d\n", getpid());
+	unsigned char	*inter_s1;
+	unsigned char	*inter_s2;
+	size_t			i;
+
+	inter_s1 = (unsigned char *)s1;
+	inter_s2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n)
+	{
+		if (inter_s1[i] != inter_s2[i])
+			return (inter_s1[i] - inter_s2[i]);
+		i++;
+	}
 	return (0);
 }

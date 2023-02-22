@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 14:20:10 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/22 18:40:31 by sbenouat         ###   ########.fr       */
+/*   Created: 2022/11/08 16:28:19 by sbenouat          #+#    #+#             */
+/*   Updated: 2022/12/23 09:11:05 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_atoi(const char *nbr)
 {
-	ft_printf("Voici le PID : %d\n", getpid());
-	return (0);
+	int	sign;
+	int	rslt;
+
+	rslt = 0;
+	sign = 1;
+	while ((*nbr > 8 && *nbr < 14) || *nbr == 32)
+		nbr++;
+	if (*nbr == '-' || *nbr == '+')
+	{
+		if (*nbr == '-')
+			sign = -1;
+		nbr++;
+	}
+	while (ft_isdigit(*nbr) == 1)
+	{
+		rslt = (rslt * 10) + (*nbr - 48);
+		nbr++;
+	}
+	return (rslt * sign);
 }

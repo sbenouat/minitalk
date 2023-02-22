@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 14:20:10 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/22 18:40:31 by sbenouat         ###   ########.fr       */
+/*   Created: 2022/12/20 11:23:25 by sbenouat          #+#    #+#             */
+/*   Updated: 2022/12/20 11:28:55 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
+#include "libft.h"
 
-int	main(void)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	ft_printf("Voici le PID : %d\n", getpid());
-	return (0);
+	t_list	*tmp;
+
+	if (lst)
+	{
+		if (*lst)
+		{
+			tmp = ft_lstlast(*lst);
+			tmp->next = new;
+		}
+		else
+			*lst = new;
+	}
 }

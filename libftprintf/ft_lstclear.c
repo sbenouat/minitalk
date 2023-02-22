@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 14:20:10 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/22 18:40:31 by sbenouat         ###   ########.fr       */
+/*   Created: 2022/12/20 11:34:57 by sbenouat          #+#    #+#             */
+/*   Updated: 2022/12/21 08:23:24 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
+#include "libft.h"
 
-int	main(void)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	ft_printf("Voici le PID : %d\n", getpid());
-	return (0);
+	t_list	*node;
+
+	if (!del || !lst || !*lst)
+		return ;
+	while (*lst && lst)
+	{
+		node = (*lst)->next;
+		ft_lstdelone(*lst, (*del));
+		*lst = node;
+	}
 }

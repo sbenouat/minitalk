@@ -6,7 +6,7 @@
 #    By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 14:20:15 by sbenouat          #+#    #+#              #
-#    Updated: 2023/02/13 14:38:24 by sbenouat         ###   ########.fr        #
+#    Updated: 2023/02/22 18:40:52 by sbenouat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,23 @@ CC		= gcc
 
 CFLAGS	= -Wall -Wextra -Werror
 
-all :
-		make -C ./printf
-		gcc -Wall -Wextra -Werror client.c -L ./printf/libftprintf.a -lftprintf -o client
+all : server
 
-client: ${OBJS}
+server : libftprintf
+		make -C ./libftprintf
+		$(CC) -o server server.c -Llibftprintf -lftprintf
 
+# %.o: %.c
+# 		$(CC) -c $(CFLAGS) $?
 
+libftprintf :
+		make -C ./libftprintf
 
+clean:
+	rm -f $(OBJS)
+	make -C libftprintf clean
+
+fclean: clean
+	rm -f server client libftprintf/libftprintf.a
+
+re: fclean all

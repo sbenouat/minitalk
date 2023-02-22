@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 14:20:10 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/22 18:40:31 by sbenouat         ###   ########.fr       */
+/*   Created: 2022/11/22 23:52:42 by sbenouat          #+#    #+#             */
+/*   Updated: 2022/12/23 09:54:33 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
+#include "libft.h"
 
-int	main(void)
+void	*ft_calloc(size_t count, size_t size)
 {
-	ft_printf("Voici le PID : %d\n", getpid());
-	return (0);
+	size_t	len;
+	void	*rslt;
+
+	if (!size || !count || (count > SIZE_MAX / size))
+		len = 1;
+	else
+		len = count * size;
+	if (size >= SIZE_MAX || count >= SIZE_MAX || size * count >= SIZE_MAX)
+		return (NULL);
+	rslt = (void *)malloc(len);
+	if (!rslt)
+		return (NULL);
+	ft_bzero(rslt, len);
+	return (rslt);
 }

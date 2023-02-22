@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 14:20:10 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/22 18:40:31 by sbenouat         ###   ########.fr       */
+/*   Created: 2022/12/20 11:30:33 by sbenouat          #+#    #+#             */
+/*   Updated: 2022/12/21 08:23:30 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
+#include "libft.h"
 
-int	main(void)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	ft_printf("Voici le PID : %d\n", getpid());
-	return (0);
+	if (!del)
+		return ;
+	if (lst)
+	{
+		(*del)(lst->content);
+		free(lst);
+	}
 }

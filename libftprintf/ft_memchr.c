@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 14:20:10 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/22 18:40:31 by sbenouat         ###   ########.fr       */
+/*   Created: 2022/11/23 02:00:20 by sbenouat          #+#    #+#             */
+/*   Updated: 2022/12/23 09:39:57 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
+#include "libft.h"
 
-int	main(void)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	ft_printf("Voici le PID : %d\n", getpid());
-	return (0);
+	size_t			i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (*(unsigned char *)(s + i) == (unsigned char)c)
+			return ((void *)(s + i));
+		i++;
+	}
+	return (NULL);
 }
