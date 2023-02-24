@@ -6,7 +6,7 @@
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:19:59 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/21 14:59:44 by sbenouat         ###   ########.fr       */
+/*   Updated: 2023/02/22 21:27:34 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #include <unistd.h>
 #include <signal.h>
 #include <stdlib.h>
+#include "libftprintf/ft_printf.h"
 
-char	*ctob(char c, pid_t pid)
+void	*ctob(char c, pid_t pid)
 {
 	int		i;
 	int		j;
@@ -38,12 +39,12 @@ char	*ctob(char c, pid_t pid)
 	return (rslt);
 }
 
-void	stob(char *b)
+void	stob(char *s, pid_t pid)
 {
-	while (*b != '\0')
+	while (*s != '\0')
 	{
-		printf("%s\n", ctob(*b));
-		b++;
+		ctob(s, pid);
+		s++;
 	}
 }
 
@@ -51,6 +52,6 @@ int	main(int ac, char **av)
 {
 	if (ac == 3)
 	{
-
+		stob(av[2], av[1]);
 	}
 }
