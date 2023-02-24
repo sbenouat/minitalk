@@ -6,7 +6,7 @@
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:06:08 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/24 15:08:55 by sbenouat         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:22:58 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 # include <signal.h>
 # include <stdlib.h>
 # include "../libftprintf/ft_printf.h"
+# include "../libftprintf/libft.h"
 
 #endif

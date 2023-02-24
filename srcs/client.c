@@ -6,13 +6,13 @@
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:19:59 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/24 15:07:32 by sbenouat         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:22:17 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
 
-void	*ctob(char c, pid_t pid)
+void	*ctob(char c)
 {
 	int		i;
 	int		j;
@@ -20,34 +20,34 @@ void	*ctob(char c, pid_t pid)
 
 	j = 0;
 	i = 7;
-	rslt = calloc(8, 1);
+	rslt = ft_calloc(8, 1);
 	while (i >= 0)
 	{
 		i--;
 		if (c & (1 << i))
-			kill(pid, SIGUSR1);
-			//rslt[j] = '1';
+			// kill(pid, SIGUSR1);
+			rslt[j] = '1';
 		else
-			kill(pid, SIGUSR2);
-			//rslt[j] = '0';
+			// kill(pid, SIGUSR2);
+			rslt[j] = '0';
 		j++;
 	}
 	return (rslt);
 }
 
-void	stob(char *s, pid_t pid)
+void	stob(char *s)
 {
 	while (*s != '\0')
 	{
-		ctob(s, pid);
+		ctob(*s);
 		s++;
 	}
 }
 
 int	main(int ac, char **av)
 {
-	if (ac == 3)
+	if (ac == 2)
 	{
-		stob(av[2], av[1]);
+		stob(av[1]);
 	}
 }
