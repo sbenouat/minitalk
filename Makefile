@@ -6,7 +6,7 @@
 #    By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 14:20:15 by sbenouat          #+#    #+#              #
-#    Updated: 2023/02/24 16:20:09 by sbenouat         ###   ########.fr        #
+#    Updated: 2023/02/24 16:31:20 by sbenouat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,19 +16,20 @@ CFLAGS	= -Wall -Wextra -Werror
 
 all: server client
 
-server: objs/server.o
-		make -C ./libftprintf
+server: objs/server.o printf
 		$(CC) -o $@ $< -Llibftprintf -lftprintf
 
 objs/server.o: srcs/server.c objs/
 		$(CC) -c $(CFLAGS) $< -o $@
 
-client: objs/client.o
-		make -C ./libftprintf
+client: objs/client.o printf
 		$(CC) -o $@ $< -Llibftprintf -lftprintf
 
 objs/client.o: srcs/client.c objs/
 		$(CC) -c $(CFLAGS) $< -o $@
+
+printf:
+		make -C ./libftprintf
 
 objs/:
 		mkdir objs
