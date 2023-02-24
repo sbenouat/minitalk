@@ -6,15 +6,11 @@
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:19:59 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/22 21:27:34 by sbenouat         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:07:32 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <signal.h>
-#include <stdlib.h>
-#include "libftprintf/ft_printf.h"
+#include "../include/minitalk.h"
 
 void	*ctob(char c, pid_t pid)
 {
