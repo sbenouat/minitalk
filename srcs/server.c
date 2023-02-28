@@ -6,7 +6,7 @@
 /*   By: sbenouat <sbenouat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:20:10 by sbenouat          #+#    #+#             */
-/*   Updated: 2023/02/24 15:07:22 by sbenouat         ###   ########.fr       */
+/*   Updated: 2023/02/27 22:09:14 by sbenouat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,9 @@
 int	main(void)
 {
 	ft_printf("Voici le PID : %d\n", getpid());
+	while (1) 
+	{
+		
+	}
 	return (0);
 }
